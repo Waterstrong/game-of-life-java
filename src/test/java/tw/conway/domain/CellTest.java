@@ -37,4 +37,13 @@ public class CellTest {
         assertThat(deadCell.getStatus(), is(DEAD));
     }
 
+    @Test
+    public void shouldNextStatusBeRemainGivenTwoAliveNeighbors() {
+        liveCell.nextGeneration(2);
+        deadCell.nextGeneration(2);
+
+        assertThat(liveCell.getStatus(), is(LIVE));
+        assertThat(deadCell.getStatus(), is(DEAD));
+
+    }
 }

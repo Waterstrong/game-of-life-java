@@ -12,7 +12,7 @@ public class Cell {
     }
 
     public void nextGeneration(int aliveNeighborNumber) {
-        if (aliveNeighborNumber <= 2) {
+        if (aliveNeighborNumber < 2) {
             this.status = DEAD;
         }
     }
