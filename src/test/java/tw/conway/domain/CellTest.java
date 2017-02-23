@@ -54,4 +54,13 @@ public class CellTest {
         assertThat(liveCell.getStatus(), is(LIVE));
         assertThat(deadCell.getStatus(), is(LIVE));
     }
+
+    @Test
+    public void shouldNextStatusBeDeadGivenMoreThanThreeNeighbors() {
+        liveCell.nextGeneration(4);
+        deadCell.nextGeneration(4);
+
+        assertThat(liveCell.getStatus(), is(DEAD));
+        assertThat(deadCell.getStatus(), is(DEAD));
+    }
 }

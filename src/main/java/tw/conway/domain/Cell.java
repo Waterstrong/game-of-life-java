@@ -19,6 +19,9 @@ public class Cell {
         if (aliveNeighborNumber == 3) {
             this.status = LIVE;
         }
+        if (aliveNeighborNumber > 3) {
+            this.status = DEAD;
+        }
     }
 
     public LifeStatus getStatus() {
