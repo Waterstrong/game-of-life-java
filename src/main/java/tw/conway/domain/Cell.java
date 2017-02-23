@@ -1,6 +1,7 @@
 package tw.conway.domain;
 
 import static tw.conway.enumeration.LifeStatus.DEAD;
+import static tw.conway.enumeration.LifeStatus.LIVE;
 
 import tw.conway.enumeration.LifeStatus;
 
@@ -14,6 +15,9 @@ public class Cell {
     public void nextGeneration(int aliveNeighborNumber) {
         if (aliveNeighborNumber < 2) {
             this.status = DEAD;
+        }
+        if (aliveNeighborNumber == 3) {
+            this.status = LIVE;
         }
     }
 
