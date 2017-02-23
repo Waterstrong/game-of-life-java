@@ -62,5 +62,11 @@ public class CellTest {
 
         assertThat(liveCell.getStatus(), is(DEAD));
         assertThat(deadCell.getStatus(), is(DEAD));
+
+        liveCell.nextGeneration(8);
+        deadCell.nextGeneration(8);
+        assertThat(liveCell.getStatus(), is(DEAD));
+        assertThat(liveCell.getStatus(), is(DEAD));
     }
 }
+
