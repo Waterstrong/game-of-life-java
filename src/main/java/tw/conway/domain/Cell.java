@@ -22,4 +22,8 @@ public class Cell {
     public LifeStatus getStatus() {
         return status;
     }
+
+    public void setStatus(LifeStatus status) {
+        this.status = status;
+    }
 }
