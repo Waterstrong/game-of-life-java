@@ -1,6 +1,7 @@
 package tw.conway.domain;
 
 import static java.util.Arrays.stream;
+import static java.util.Optional.ofNullable;
 import static java.util.stream.IntStream.range;
 import static tw.conway.enumeration.LifeStatus.DEAD;
 import static tw.conway.enumeration.LifeStatus.LIVE;
@@ -27,7 +28,7 @@ public class Grid {
             range(0, height).forEach(h -> cellMap.put(h, new Cell(DEAD)));
             cells.put(w, cellMap);
         });
-        stream(aliveCellsPosition).forEach(point -> cells.get(point.x).get(point.y).setStatus(LIVE));
+        stream(ofNullable(aliveCellsPosition).orElse(new Point[]{})).forEach(point -> cells.get(point.x).get(point.y).setStatus(LIVE));
     }
 
     public int getAliveNeighborNumber(Point point) {

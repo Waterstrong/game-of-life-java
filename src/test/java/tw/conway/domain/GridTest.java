@@ -21,12 +21,19 @@ public class GridTest {
         assertThat(grid.getCellAt(new Point(1, 1)).getStatus(), is(LIVE));
         assertThat(grid.getCellAt(new Point(2, 1)).getStatus(), is(DEAD));
         assertThat(grid.getCellAt(new Point(2, 2)).getStatus(), is(DEAD));
+    }
+
+    @Test
+    public void shouldReturnNullGivenNullGridParamAndPointIsOutOfGrid() {
+        Grid grid = new Grid(3, 3, null);
+
         assertNull(grid.getCellAt(new Point(1, 3)));
         assertNull(grid.getCellAt(new Point(3, 1)));
         assertNull(grid.getCellAt(new Point(3, 3)));
         assertNull(grid.getCellAt(new Point(-1, 1)));
         assertNull(grid.getCellAt(new Point(1, -1)));
         assertNull(grid.getCellAt(new Point(-1, -1)));
+
     }
 
     @Test
