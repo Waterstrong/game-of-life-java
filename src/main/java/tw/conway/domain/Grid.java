@@ -35,7 +35,7 @@ public class Grid {
     public int getAliveNeighborNumber(Point point) {
         return (int) stream(NEIGHBOR_INDEX).filter(index -> {
             Point newPoint = new Point(point.x + index[0], point.y + index[1]);
-            return isWithinRange(newPoint) && LIVE.equals(cells[(newPoint.x)][newPoint.y].getStatus());
+            return isWithinRange(newPoint) && LIVE.equals(cells[newPoint.x][newPoint.y].getStatus());
         }).count();
     }
 
