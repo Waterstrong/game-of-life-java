@@ -11,14 +11,19 @@ public class ConwayGame {
     private static final int[][] NEIGHBOR_INDEX = {{-1, -1}, {0, -1}, {1, -1}, {-1, 0}, {1, 0}, {-1, 1}, {0, 1}, {1, 1}};
 
     public LifeStatus[][] nextGeneration(LifeStatus[][] current) {
-        LifeStatus[][] next = current.clone();
-        range(0, next.length).forEach(row -> range(0, next[row].length).forEach(col -> {
-            int aliveNeighborNumber = getAliveNeighborNumber(row, col, current);
-            System.out.println(aliveNeighborNumber);
-            next[row][col] = aliveNeighborNumber == 2 ? current[row][col] : DEAD;
-            next[row][col] = aliveNeighborNumber == 3 ? LIVE : next[row][col];
-        }));
+        LifeStatus[][] next = new LifeStatus[current.length][];
+        range(0, next.length).forEach(row -> {
+            next[row] = new LifeStatus[current[row].length];
+            range(0, next[row].length).forEach(col -> next[row][col] = getNextLifeStatus(row, col, current));
+        });
         return next;
+    }
+
+    private LifeStatus getNextLifeStatus(int row, int col, LifeStatus[][] current) {
+        int aliveNeighborNumber = getAliveNeighborNumber(row, col, current);
+        LifeStatus nextStatus = aliveNeighborNumber == 2 ? current[row][col] : DEAD;
+        nextStatus = aliveNeighborNumber == 3 ? LIVE : nextStatus;
+        return nextStatus;
     }
 
     private int getAliveNeighborNumber(int row, int col, LifeStatus[][] current) {

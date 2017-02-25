@@ -60,17 +60,33 @@ public class ConwayGameTest {
                 {DEAD, DEAD, DEAD},
                 {DEAD, DEAD, DEAD},
                 {DEAD, LIVE, DEAD},
-                {LIVE, DEAD, LIVE},
+                {LIVE, DEAD, LIVE}
         };
         LifeStatus[][] expectNext = {
                 {DEAD, DEAD, DEAD},
                 {DEAD, DEAD, DEAD},
                 {DEAD, DEAD, DEAD},
                 {DEAD, LIVE, DEAD},
-                {DEAD, DEAD, DEAD},
+                {DEAD, LIVE, DEAD}
         };
 
         assertThat(conway.nextGeneration(current), is(expectNext));
     }
 
+    @Test
+    public void shouldNextStateBeAliveGivenCellWithOnlyThreeAliveNeighbors() {
+        LifeStatus[][] current = {
+                {LIVE, DEAD, LIVE},
+                {DEAD, LIVE, DEAD},
+                {LIVE, DEAD, DEAD}
+
+        };
+        LifeStatus[][] expectNext = {
+                {DEAD, LIVE, DEAD},
+                {LIVE, LIVE, DEAD},
+                {DEAD, DEAD, DEAD}
+        };
+
+        assertThat(conway.nextGeneration(current), is(expectNext));
+    }
 }
