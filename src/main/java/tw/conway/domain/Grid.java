@@ -44,7 +44,9 @@ public class Grid {
     }
 
     public void nextGeneration() {
-        range(0, width).forEach(w -> range(0, height).forEach(h -> cells[w][h].nextGeneration(getAliveNeighborNumber(new Point(w, h)))));
+        int[][] aliveNeighborMatrix = new int[width][height];
+        range(0, width).forEach(w -> range(0, height).forEach(h -> aliveNeighborMatrix[w][h] = getAliveNeighborNumber(new Point(w, h))));
+        range(0, width).forEach(w -> range(0, height).forEach(h -> cells[w][h].nextGeneration(aliveNeighborMatrix[w][h])));
     }
 
     public int getWidth() {

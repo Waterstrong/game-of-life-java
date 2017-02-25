@@ -69,6 +69,13 @@ public class GridTest {
         grid.nextGeneration();
 
         assertThat(grid.getCellAt(new Point(0, 0)).getStatus(), is(LIVE));
+        assertThat(grid.getCellAt(new Point(0, 1)).getStatus(), is(LIVE));
+        assertThat(grid.getCellAt(new Point(0, 2)).getStatus(), is(LIVE));
+        assertThat(grid.getCellAt(new Point(1, 0)).getStatus(), is(LIVE));
         assertThat(grid.getCellAt(new Point(1, 1)).getStatus(), is(DEAD));
+        assertThat(grid.getCellAt(new Point(1, 2)).getStatus(), is(LIVE));
+        assertThat(grid.getCellAt(new Point(2, 0)).getStatus(), is(LIVE));
+        assertThat(grid.getCellAt(new Point(2, 1)).getStatus(), is(LIVE));
+        assertThat(grid.getCellAt(new Point(2, 2)).getStatus(), is(LIVE));
     }
 }
