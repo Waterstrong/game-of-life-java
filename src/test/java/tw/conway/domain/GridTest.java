@@ -27,7 +27,7 @@ public class GridTest {
 
     @Test
     public void shouldReturnNullGivenNullGridParamAndPointIsOutOfGrid() {
-        Grid grid = new Grid(3, 3, null);
+        Grid grid = new Grid(3, 3);
 
         assertNull(grid.getCellAt(new Point(1, 3)));
         assertNull(grid.getCellAt(new Point(3, 1)));
