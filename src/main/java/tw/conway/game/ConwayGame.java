@@ -5,7 +5,7 @@ import static java.util.stream.IntStream.range;
 import static tw.conway.enumeration.LifeStatus.DEAD;
 import static tw.conway.enumeration.LifeStatus.LIVE;
 
-import java.awt.*;
+import java.awt.Point;
 
 import tw.conway.enumeration.LifeStatus;
 
@@ -29,7 +29,8 @@ public class ConwayGame {
         LifeStatus[][] next = new LifeStatus[current.length][];
         range(0, next.length).forEach(row -> {
             next[row] = new LifeStatus[current[row].length];
-            range(0, next[row].length).forEach(col -> next[row][col] = getNextLifeStatus(new Point(row, col), current));
+            range(0, next[row].length)
+                    .forEach(col -> next[row][col] = getNextLifeStatus(new Point(row, col), current));
         });
         return next;
     }

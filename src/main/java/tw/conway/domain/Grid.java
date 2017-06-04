@@ -6,13 +6,23 @@ import static java.util.stream.IntStream.range;
 import static tw.conway.enumeration.LifeStatus.DEAD;
 import static tw.conway.enumeration.LifeStatus.LIVE;
 
-import java.awt.*;
+import java.awt.Point;
 
 public class Grid {
+    private static final int[][] NEIGHBOR_INDEX = {
+            {-1, -1},
+            {0, -1},
+            {1, -1},
+            {-1, 0},
+            {1, 0},
+            {-1, 1},
+            {0, 1},
+            {1, 1}
+    };
+
     private final int width;
     private final int height;
     private final Cell[][] cells;
-    private static final int[][] NEIGHBOR_INDEX = {{-1, -1}, {0, -1}, {1, -1}, {-1, 0}, {1, 0}, {-1, 1}, {0, 1}, {1, 1}};
 
     public Grid(int width, int height, Point... aliveCellsPosition) {
         this.width = width;
@@ -45,8 +55,10 @@ public class Grid {
 
     public void nextGeneration() {
         int[][] aliveNeighborMatrix = new int[width][height];
-        range(0, width).forEach(w -> range(0, height).forEach(h -> aliveNeighborMatrix[w][h] = getAliveNeighborNumber(new Point(w, h))));
-        range(0, width).forEach(w -> range(0, height).forEach(h -> cells[w][h].nextGeneration(aliveNeighborMatrix[w][h])));
+        range(0, width).forEach(w -> range(0, height)
+                .forEach(h -> aliveNeighborMatrix[w][h] = getAliveNeighborNumber(new Point(w, h))));
+        range(0, width).forEach(w -> range(0, height)
+                .forEach(h -> cells[w][h].nextGeneration(aliveNeighborMatrix[w][h])));
     }
 
     public int getWidth() {

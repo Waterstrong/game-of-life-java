@@ -6,7 +6,7 @@ import static org.junit.Assert.assertThat;
 import static tw.conway.enumeration.LifeStatus.DEAD;
 import static tw.conway.enumeration.LifeStatus.LIVE;
 
-import java.awt.*;
+import java.awt.Point;
 
 import org.junit.Test;
 
@@ -63,7 +63,7 @@ public class GridTest {
     @Test
     public void shouldExecuteNextGenerationCorrectly() {
         Point[] aliveCellsPosition = {new Point(0, 1), new Point(1, 0),
-                new Point(1, 1), new Point(1, 2), new Point(2, 1),};
+                new Point(1, 1), new Point(1, 2), new Point(2, 1)};
         Grid grid = new Grid(3, 3, aliveCellsPosition);
 
         grid.nextGeneration();
