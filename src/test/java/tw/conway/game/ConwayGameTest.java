@@ -104,4 +104,20 @@ public class ConwayGameTest {
 
         assertThat(conway.nextGeneration(current), is(expectNext));
     }
+
+    @Test
+    public void shouldNextStateBeDeadGivenCellWithEightAliveNeighborsSurrounded() {
+        LifeStatus[][] current = {
+                {LIVE, LIVE, LIVE},
+                {LIVE, LIVE, LIVE},
+                {LIVE, LIVE, LIVE}
+        };
+        LifeStatus[][] expectNext = {
+                {LIVE, DEAD, LIVE},
+                {DEAD, DEAD, DEAD},
+                {LIVE, DEAD, LIVE}
+        };
+
+        assertThat(conway.nextGeneration(current), is(expectNext));
+    }
 }
