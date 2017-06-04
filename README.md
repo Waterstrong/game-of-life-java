@@ -1,4 +1,4 @@
-## Conway's Game of Life
+## Conway's Game of Life [![Build Status](https://travis-ci.org/Waterstrong/game-of-life-java.svg?branch=master)](https://travis-ci.org/Waterstrong/game-of-life-java)
 
 - Get Started
 ```
