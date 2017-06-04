@@ -3,9 +3,14 @@
 - Get Started
 ```
 ./gradlew idea
-./gradlew build
 
-java -cp build/libs/game-of-life-java.jar tw.conway.Main <NUM>
+open game-of-life-java.ipr
+
+./gradlew build
 ```
+
+Here are two possible solutions to implement the Conway's Game of Life. 
+- tw.conway.domain  # Bottom-Up
+- tw.conway.game  # Top-Down
 
 - Read more details: [game of life](http://codingdojo.org/kata/GameOfLife/)

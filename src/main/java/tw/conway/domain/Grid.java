@@ -24,7 +24,7 @@ public class Grid {
     private void initCellStatus(Point... aliveCellsPosition) {
         range(0, width).forEach(w -> range(0, height).forEach(h -> cells[w][h] = new Cell(DEAD)));
         stream(ofNullable(aliveCellsPosition).orElse(new Point[]{}))
-                .filter(point -> isWithinRange(point))
+                .filter(this::isWithinRange)
                 .forEach(point -> cells[point.x][point.y].setStatus(LIVE));
     }
 
